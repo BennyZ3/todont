@@ -3,15 +3,11 @@ const todos = require("./todos");
 
 function getMenu() {
   const menu = `${chalk.blue.bold(
-    "Choose a todo to toggle its completeness(by entering its number) or choose an option at the bottom(by letter):"
+    "Choose a todo to edit(by entering its number) or choose an option at the bottom(by letter):"
   )}
 ${todos
   .map((todo, i) => {
-    let symbol = "🆇";
-    if (todo.isComplete) {
-      symbol = "☑️";
-    }
-    return `${i + 1}. ${symbol} ${todo.text}`;
+    return `${i + 1}. ${todo.isComplete ? "✅" : "❌"} ${todo.text}`;
   })
   .join("\n")}
 (e) Edit a todo.
